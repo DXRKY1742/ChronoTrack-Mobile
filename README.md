@@ -101,29 +101,29 @@ ChronoTrack/
 ---
 ## ⚙️ Backend
 
-El backend de **ChronoTrack** está construido con:
+**ChronoTrack's** backend is constituted by:
 
 - **NestJS** (Node.js + TypeScript)
-- **PostgreSQL** como base de datos relacional.
-- Arquitectura de **3 capas (Controllers, Services, Repositories)**.
-- Autenticación mediante **JWT**.
-- Documentación y endpoints disponibles a través de **Swagger** (`/api/docs`).
+- **PostgreSQL** relational database.
+- **Layered architecture (Controllers, Services, Repositories)**.
+- **JWT** Authentication.
+- **Swagger** (`/api/docs`).
 
-### Ejemplo de endpoints
-| Módulo | Método | Endpoint | Descripción |
+### Endpoints
+| Módulo | Método | Endpoint | Description |
 |--------|---------|-----------|--------------|
-| Auth | POST | `/auth/login` | Inicia sesión con email y password |
-| Auth | POST | `/auth/register` | Crea un nuevo usuario |
-| Tasks | GET | `/tasks` | Obtiene todas las tareas del usuario |
-| Tasks | POST | `/tasks` | Crea una nueva tarea |
-| Tasks | PATCH | `/tasks/:id` | Actualiza una tarea existente |
-| Tasks | DELETE | `/tasks/:id` | Elimina una tarea |
+| Auth | POST | `/auth/login` | Email & password |
+| Auth | POST | `/auth/register` | User creation |
+| Tasks | GET | `/tasks` | Activity getter |
+| Tasks | POST | `/tasks` | Create a new activity |
+| Tasks | PATCH | `/tasks/:id` | Updates an activity |
+| Tasks | DELETE | `/tasks/:id` | Deletes an activity |
 
 ---
 
-## 🔌 Comunicación API
+## 🔌 API communication
 
-La app usa **Retrofit** con un `ApiService` para manejar las peticiones HTTP hacia el backend.
+The app uses **Retrofit** with an `ApiService` to handle HTTP requests to the backend.
 
 ```kotlin
 interface ApiService {
