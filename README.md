@@ -97,3 +97,39 @@ ChronoTrack/
 - Ui/ → Everything visual: activities, fragments, and reusable components.
 - Utils/ → Helper functions, extensions, global constants.
 - ChronoTrackApp.kt → Application class to initialize Retrofit, ViewModels, or dependencies with Hilt/Koin.
+
+---
+## ⚙️ Backend
+
+El backend de **ChronoTrack** está construido con:
+
+- **NestJS** (Node.js + TypeScript)
+- **PostgreSQL** como base de datos relacional.
+- Arquitectura de **3 capas (Controllers, Services, Repositories)**.
+- Autenticación mediante **JWT**.
+- Documentación y endpoints disponibles a través de **Swagger** (`/api/docs`).
+
+### Ejemplo de endpoints
+| Módulo | Método | Endpoint | Descripción |
+|--------|---------|-----------|--------------|
+| Auth | POST | `/auth/login` | Inicia sesión con email y password |
+| Auth | POST | `/auth/register` | Crea un nuevo usuario |
+| Tasks | GET | `/tasks` | Obtiene todas las tareas del usuario |
+| Tasks | POST | `/tasks` | Crea una nueva tarea |
+| Tasks | PATCH | `/tasks/:id` | Actualiza una tarea existente |
+| Tasks | DELETE | `/tasks/:id` | Elimina una tarea |
+
+---
+
+## 🔌 Comunicación API
+
+La app usa **Retrofit** con un `ApiService` para manejar las peticiones HTTP hacia el backend.
+
+```kotlin
+interface ApiService {
+    @POST("auth/login")
+    suspend fun login(@Body request: LoginRequest): Response<AuthResponse>
+
+    @GET("tasks")
+    suspend fun getTasks(@Header("Authorization") token: String): Response<List<Task>>
+}
