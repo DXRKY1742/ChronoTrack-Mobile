@@ -7,6 +7,7 @@ Mobile version of the previously created project
 - RetroFit
 
 ## Folder structure:
+#### (This is just an example, the actual entities and services must be created)
 ```
 ChronoTrack/
 │
